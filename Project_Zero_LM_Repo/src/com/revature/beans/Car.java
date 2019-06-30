@@ -3,7 +3,6 @@ package com.revature.beans;
 public class Car {
 	
 	public Car () {
-		super();
 	}
 	
 	private String model;
