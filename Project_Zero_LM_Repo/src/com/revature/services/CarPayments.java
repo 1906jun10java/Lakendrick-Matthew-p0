@@ -4,7 +4,6 @@ public class CarPayments {
 	
 	
 	public static double CalculatedCarPayments(double...a) {
-		
 		return 0;
 	}
 	

@@ -42,7 +42,7 @@ public class CarOffers {
 		
 		for(Car x : carLot) {
 			System.out.println(x);
-			break;
+			
 		}
 		
 	}
