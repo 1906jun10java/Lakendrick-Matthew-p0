@@ -3,7 +3,7 @@ package com.revature.beans;
 public class Car {
 	
 	public Car () {
-		super();
+		
 	}
 	
 	private String model;
@@ -11,16 +11,21 @@ public class Car {
 	private int yearMade;
 	private String color;
 	private double currentPrice;
+	private String onLot;
 	
 	
-	public Car(String model, String make, int yearMade, String color, double currentPrice) {
-		super();
+	public Car(String model, String make, int yearMade, String color, double currentPrice, String onLot) {
 		this.model = model;
 		this.make = make;
 		this.yearMade = yearMade;
 		this.color = color;
 		this.currentPrice = currentPrice;
+		this.onLot = onLot;
 	}
+	
+	
+	
+
 	public String getModel() {
 		return model;
 	}
@@ -51,11 +56,30 @@ public class Car {
 	public void setCurrentPrice(double currentPrice) {
 		this.currentPrice = currentPrice;
 	}
+	
+	
+	
+	public String getOnLot() {
+		return onLot;
+	}
+
+
+
+
+	public void setOnLot(String onLot) {
+		this.onLot = onLot;
+	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "Car [model= " + model + ", make= " + make + ", yearMade= " + yearMade + ", color= " + color
-				+ ", currentPrice= " + currentPrice + "]";
+		return "Car [model= " + model + ", make= " + make + ", yearMade= " + yearMade + ", color=" + color
+				+ ", currentPrice= " + currentPrice + ", onLot=" + onLot + "]";
 	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

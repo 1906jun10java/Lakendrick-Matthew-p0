@@ -1,13 +1,15 @@
 package com.revature.main;
 import com.revature.beans.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.LinkedList;
+
 import java.util.HashSet;
+import java.util.List;
 
 import com.revature.services.CarOffers;
 import com.revature.services.CarOffers.*;
-import java.util.Queue;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -16,6 +18,14 @@ public class Main {
 		 * prompt the welcome menu and ask the user
 		 * for their username and password.
 		 */
+		List <Car> carLot = new ArrayList<Car>();
+
+		carLot.add(new Car("Toyota", "camry", 2000, "red", 60000d,"not sold"));
+
+		carLot.add(new Car("Nissan", "hootie", 2103, "blue", 45000d,"not sold"));
+
+		carLot.add(new Car("toyota", "Avalon", 2014, "yellow", 50000d,"not sold"));
+		
 		
 		boolean signedIn = true;
 		while(signedIn) {
@@ -70,11 +80,29 @@ public class Main {
 
 				case 1:
 					System.out.println(" These are the available cars: ");
-					CarOffers.carsOnLot();
+					CarOffers.carsOnLot(carLot);
 					System.out.println(" ");
 					break;
 
 				case 2:
+					
+					System.out.println("Do you want to add or remove? 1. for add or 2. for remove");
+					Scanner SC = new Scanner(System.in);
+					
+					int decision = SC.nextInt();
+					
+					if (decision == 2) {
+						
+						Scanner index = new Scanner(System.in);
+						int indexOfCar = index.nextInt();
+						
+						System.out.println(" ");
+						System.out.println("choose your car by the number of its index.");
+						CarOffers.removeMethod(indexOfCar);
+					}
+					if(decision == 1) {
+						CarOffers.addMethod(carLot);
+					}
 
 					break;
 
@@ -114,11 +142,9 @@ public class Main {
 				switch (choice) {
 
 				case 1:
+					System.out.println(" These are the available cars: ");
+					CarOffers.carsOnLot(carLot);
 					System.out.println(" ");
-					CarOffers.carsOnLot();
-					System.out.println(" ");
-
-				
 
 				case 2:
 
