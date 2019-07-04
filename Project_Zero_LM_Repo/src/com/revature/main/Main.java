@@ -98,7 +98,7 @@ public class Main {
 						
 						System.out.println(" ");
 						System.out.println("choose your car by the number of its index.");
-						CarOffers.removeMethod(indexOfCar);
+						CarOffers.removeMethod(indexOfCar, carLot);
 					}
 					if(decision == 1) {
 						CarOffers.addMethod(carLot);
@@ -107,7 +107,11 @@ public class Main {
 					break;
 
 				case 3:
+					System.out.println(" Do you want to accept or reject this offer? 1.accept/2.reject");
 
+					Scanner sc2 = new Scanner(System.in);
+					decision = sc2.nextInt();
+						CarOffers.AcceptOrReject(carLot, decision);
 					break;
 
 				case 4:
@@ -125,7 +129,7 @@ public class Main {
 			
 			while (switchControl1) {
 
-			System.out.println("Welcome to CARS'R US. Below are your main menu options.");
+			System.out.println("Welcome to M&K's Cars. Below are your main menu options.");
 			System.out.println("-----------------------------------------");
 			System.out.println("1. View all cars on the lot.");
 			System.out.println("2. Make an offer on a vehicle.");
@@ -136,7 +140,7 @@ public class Main {
 			int choice = sc.nextInt();
 			
 			
-			
+			double customerOffer = 0;
 				
 			
 				switch (choice) {
@@ -147,6 +151,15 @@ public class Main {
 					System.out.println(" ");
 
 				case 2:
+					
+					System.out.println(" ");
+					CarOffers.carsOnLot(carLot);
+					System.out.println("Which car do you want to make an offer on?:");
+					System.out.println(" ");
+					Scanner sc3 = new Scanner(System.in);
+					int carChosen = sc3.nextInt();
+					System.out.println("this is your car");
+					CarOffers.ChosenCar(carLot, carChosen);
 
 					break;
 

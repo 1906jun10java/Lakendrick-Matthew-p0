@@ -12,9 +12,9 @@ public  class CarOffers {
 	
 	
 	
-	public static void removeMethod(int n) {
+	public static void removeMethod(int n, List<Car> cars) {
 		
-		//List <Car> carLot = new ArrayList<>();
+		List <Car> carLot = new ArrayList<>();
 
 		//carLot.add(new Car("Toyota", "camry", 2000, "red", 60000d));
 
@@ -22,11 +22,11 @@ public  class CarOffers {
 
 		//carLot.add(new Car("toyota", "Avalon", 2014, "yellow", 50000d));
 		
-		//carLot.remove(n);
+		cars.remove(n);
 		
-		//for (Car x : carLot) {
-		//	System.out.println(x);
-	//	}
+		for (Car x : carLot) {
+			System.out.println(x);
+		}
 		
 		}
 	
@@ -66,11 +66,23 @@ public  class CarOffers {
 	}
 	
 	
-	public static void EmployeePendingOffers( ) {
+	public static void AcceptOrReject(List <Car> cars, int n ) {
 		
+		
+		if (n == 1) {
+			System.out.println("offer accepted.");
+			System.out.println(" ");
+			
+						
+		}
+		
+		if(n == 2) {
+			System.out.println("offer rejected");
+			System.out.println(" ");
+		}
 	}
 	
-	public static void SystemUpdateOwnership() {
+	public static void SystemUpdateOwnership(List<Car> cars, int n) {
 		
 		
 	}
@@ -92,6 +104,11 @@ public  class CarOffers {
 		
 		
 		}
+		
+	}
+	
+	public static void ChosenCar(List<Car> cars,int n) {
+		System.out.println(cars.get(n).toString());
 		
 	}
 
