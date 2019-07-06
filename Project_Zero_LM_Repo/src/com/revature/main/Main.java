@@ -1,6 +1,9 @@
 package com.revature.main;
+
+import com.revature.DAOImpl.CarDAOImpl;
 import com.revature.beans.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,18 +16,33 @@ import com.revature.services.CarOffers.*;
 public class Main {
 
 	public static void main(String[] args) {
-
+		
+		CarDAOImpl cardaoimpl = new CarDAOImpl();
+		
+		
+		  try { cardaoimpl.addCar("Toyota", "Tundra", 2018, "Blue", 30000); }
+		  catch(SQLException e) { e.printStackTrace(); }
+		 
+		
 		/*
+		 * try { System.out.println(cardaoimpl.getCars()); } catch(SQLException e) {
+		 * e.printStackTrace(); }
+		 */
+		
+
+	/*	
 		 * prompt the welcome menu and ask the user
 		 * for their username and password.
-		 */
+		 
 		List <Car> carLot = new ArrayList<Car>();
 
-		carLot.add(new Car("Toyota", "camry", 2000, "red", 60000d,"not sold"));
-
-		carLot.add(new Car("Nissan", "hootie", 2103, "blue", 45000d,"not sold"));
-
-		carLot.add(new Car("toyota", "Avalon", 2014, "yellow", 50000d,"not sold"));
+		
+		  carLot.add(new Car("Toyota", "camry", 2000, "red", 60000d));
+		  
+		  carLot.add(new Car("Nissan", "hootie", 2103, "blue", 45000d));
+		  
+		  carLot.add(new Car("toyota", "Avalon", 2014, "yellow", 50000d));
+		 
 		
 		List<Car> customerLot = new ArrayList<Car>();
 		boolean signedIn = true;
@@ -60,11 +78,15 @@ public class Main {
 		//This list is to store the cars that the customer owns
 		//List<Car> customerLot = new ArrayList<Car>();
 		
-		//this will be used to connect the car offer to employee and customer
+		//this will be used to store the index of the car picked by the customer.
 		int customerOffer = 0;
+		
+		//This will be used to store the calculations of the payment
+		
 		// this will display the employee menu.
+		
 		if (question == answerEmployee ) {
-			
+			//This variable and while loop is used to control the employee menu.
 			boolean switchControl2 = true;
 			while(switchControl2) {
 
@@ -105,6 +127,7 @@ public class Main {
 						CarOffers.ChosenCar(carLot, indexOfCar);
 						CarOffers.SystemUpdateOwnership(carLot, customerLot, customerOffer);
 						CarOffers.removeMethod(indexOfCar, carLot);
+						
 					}
 					if(decision == 1) {
 						CarOffers.addMethod(carLot);
@@ -113,14 +136,26 @@ public class Main {
 					break;
 
 				case 3:
+					System.out.println("Customers offer on Car:");
+					System.out.println("---------------------");
+					CarOffers.ChosenCar(carLot, customerOffer);
+					
 					System.out.println(" Do you want to accept or reject this offer? 1.accept/2.reject");
 
 					Scanner sc2 = new Scanner(System.in);
 					decision = sc2.nextInt();
-					
-						CarOffers.AcceptOrReject(carLot, decision, customerOffer );
+					if(decision == 1) {
+						CarOffers.AcceptOrReject(carLot, customerOffer );
 						CarOffers.SystemUpdateOwnership(carLot, customerLot, customerOffer);
 						CarOffers.removeMethod(customerOffer, carLot);
+					}
+					else if (decision == 2) {
+						System.out.println("Offer rejected on car: ");
+						System.out.println("---------------------");
+						System.out.println(" ");
+						CarOffers.ChosenCar(carLot, customerOffer);
+						
+					}
 					break;
 
 				case 4:
@@ -176,6 +211,7 @@ public class Main {
 					CarOffers.CalculatePayments(carLot, carChosen, downPayment, months);
 					System.out.println(" ");
 					 customerOffer = CarOffers.ChosenCar(carLot,carChosen);
+					 
 					 break;
 				case 3:
 					System.out.println(" Cars you own:");
@@ -199,7 +235,7 @@ public class Main {
 		System.out.println(" ");
 	}
 		
-  }
-
-	List<Car> customerLot = new ArrayList<Car>();
-} 
+*/
+	}
+	
+}

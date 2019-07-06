@@ -9,21 +9,23 @@ public class Car {
 		
 	}
 	
+	private int carID;
 	private String model;
 	private String make;
 	private int yearMade;
 	private String color;
 	private double currentPrice;
-	private String onLot;
 	
 	
-	public Car(String model, String make, int yearMade, String color, double currentPrice, String onLot) {
+	
+	public Car(int carID, String model, String make, int yearMade, String color, double currentPrice) {
+		this.carID = carID;
 		this.model = model;
 		this.make = make;
 		this.yearMade = yearMade;
 		this.color = color;
 		this.currentPrice = currentPrice;
-		this.onLot = onLot;
+		;
 	}
 	
 	
@@ -69,24 +71,24 @@ public class Car {
 	
 	
 	
-	public String getOnLot() {
-		return onLot;
-	}
+	/*
+	 * public String getOnLot() { return onLot; }
+	 */
 
 
 
 
-	public void setOnLot(String onLot) {
-		this.onLot = onLot;
-	}
+	/*
+	 * public void setOnLot(String onLot) { this.onLot = onLot; }
+	 */
 
 
 
 
 	@Override
 	public String toString() {
-		return "Car [model= " + model + ", make= " + make + ", yearMade= " + yearMade + ", color=" + color
-				+ ", currentPrice= " + currentPrice + ", onLot= " + onLot + "]";
+		return "Car [carID = " +carID +" model= " + model + ", make= " + make + ", yearMade= " + yearMade + ", color=" + color
+				+ ", currentPrice= " + currentPrice + ", ]";
 	}
 
 

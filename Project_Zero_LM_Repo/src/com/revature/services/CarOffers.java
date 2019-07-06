@@ -42,7 +42,7 @@ public  class CarOffers {
 		
 		
 		
-		cars.add(new Car(make,model,year,color,price,"not sold"));
+	//	cars.add(new Car(make,model,year,color,price));
 		
 		Iterator<Car> it = cars.iterator();
 		while(it.hasNext()) {
@@ -53,11 +53,11 @@ public  class CarOffers {
 	}
 	
 	
-	public static void AcceptOrReject(List <Car> cars, int n , int c) {
+	public static void AcceptOrReject(List <Car> cars, int c) {
 		
 		
 		
-		if (n == 1) {
+		
 			System.out.println("offer accepted.");
 			System.out.println(" ");
 			System.out.println("This is the car to be removed:");
@@ -67,33 +67,13 @@ public  class CarOffers {
 			
 
 			
-						
-		}
 		
-		if(n == 2) {
-			System.out.println("offer rejected");
-			System.out.println(" ");
-			
-
-		}
 	}
 	
-	//public static void SystemUpdateOwnership(List<Car> cars,List<Car> ownerLot, int c) {
-		
-	//	ownerLot.add(cars.get(c));
-		
-
-	//}
+	
 	
 	public static void carsOnLot(List<Car> cars) {
 		
-		//List <Car> carLot = new ArrayList<>();
-
-		//carLot.add(new Car("Toyota", "camry", 2000, "red", 60000d));
-
-		//carLot.add(new Car("Nissan", "hootie", 2103, "blue", 45000d));
-
-		//carLot.add(new Car("toyota", "Avalon", 2014, "yellow", 50000d));
 		
 	
 		Iterator<Car> it = cars.iterator();
@@ -124,11 +104,16 @@ public  class CarOffers {
 	}
 
 
-	public static List<Car> SystemUpdateOwnership(List<Car> carLot, List<Car> customerLot, int customerOffer) {
-		Car a = carLot.get(customerOffer);
-		customerLot.add(new Car(a));
-		System.out.println(a.toString());
-		return customerLot;
+	public static void SystemUpdateOwnership(List<Car> carLot, List<Car> customerLot, int customerOffer) {
+		//Car a = carLot.get(customerOffer);
+		String model = (carLot.get(customerOffer).getMake());
+		String make = (carLot.get(customerOffer).getModel());
+		int year = (carLot.get(customerOffer).getYearMade());
+		String color = (carLot.get(customerOffer).getColor());
+		double price = (carLot.get(customerOffer).getCurrentPrice());
+	//	customerLot.add(new Car(model,make,year,color,price,"Sold"));
+		
+		//return customerLot;
 	}
 	
 	
