@@ -2,6 +2,9 @@ package com.revature.beans;
 
 public class Car {
 	
+	
+
+
 	public Car () {
 		
 	}
@@ -25,6 +28,13 @@ public class Car {
 	
 	
 	
+
+	public Car(Car a) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 
 	public String getModel() {
 		return model;

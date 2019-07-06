@@ -14,30 +14,17 @@ public  class CarOffers {
 	
 	public static void removeMethod(int n, List<Car> cars) {
 		
-		List <Car> carLot = new ArrayList<>();
-
-		//carLot.add(new Car("Toyota", "camry", 2000, "red", 60000d));
-
-		//carLot.add(new Car("Nissan", "hootie", 2103, "blue", 45000d));
-
-		//carLot.add(new Car("toyota", "Avalon", 2014, "yellow", 50000d));
+		
 		
 		cars.remove(n);
 		
-		for (Car x : carLot) {
-			System.out.println(x);
-		}
+		
 		
 		}
 	
 	
 	public static void addMethod(List<Car> cars) {
-		//List <Car> carLot = new ArrayList<>();
-		//carLot.add(new Car("Toyota", "camry", 2000, "red", 60000d));
-
-		//carLot.add(new Car("Nissan", "hootie", 2103, "blue", 45000d));
-
-		//carLot.add(new Car("toyota", "Avalon", 2014, "yellow", 50000d));
+		
 		
 		Scanner scan = new Scanner(System.in);
 		System.out.println("make: ");
@@ -62,16 +49,23 @@ public  class CarOffers {
 			System.out.println(it.next());
 		}
 		
-		
+		System.out.println(" ");
 	}
 	
 	
-	public static void AcceptOrReject(List <Car> cars, int n ) {
+	public static void AcceptOrReject(List <Car> cars, int n , int c) {
+		
 		
 		
 		if (n == 1) {
 			System.out.println("offer accepted.");
 			System.out.println(" ");
+			System.out.println("This is the car to be removed:");
+			System.out.println("-----------------");
+			System.out.println(cars.get(c).toString());
+			
+			
+
 			
 						
 		}
@@ -79,13 +73,17 @@ public  class CarOffers {
 		if(n == 2) {
 			System.out.println("offer rejected");
 			System.out.println(" ");
+			
+
 		}
 	}
 	
-	public static void SystemUpdateOwnership(List<Car> cars, int n) {
+	//public static void SystemUpdateOwnership(List<Car> cars,List<Car> ownerLot, int c) {
 		
+	//	ownerLot.add(cars.get(c));
 		
-	}
+
+	//}
 	
 	public static void carsOnLot(List<Car> cars) {
 		
@@ -107,9 +105,32 @@ public  class CarOffers {
 		
 	}
 	
-	public static void ChosenCar(List<Car> cars,int n) {
+	public static int ChosenCar(List<Car> cars,int n) {
+		System.out.println(" ");
 		System.out.println(cars.get(n).toString());
+		System.out.println(" ");
+		int number = n;
+		return n;
+	}
+	
+	public static void CalculatePayments(List<Car> cars, int n, double d, int m) {
+		double remainingBalance = (cars.get(n).getCurrentPrice()) - d;
+		double monthlyPayment = remainingBalance / m;
+		System.out.println("Balance on car: " + remainingBalance);
+		System.out.println("monthlyPayment: " + monthlyPayment);
+		
+		
 		
 	}
+
+
+	public static List<Car> SystemUpdateOwnership(List<Car> carLot, List<Car> customerLot, int customerOffer) {
+		Car a = carLot.get(customerOffer);
+		customerLot.add(new Car(a));
+		System.out.println(a.toString());
+		return customerLot;
+	}
+	
+	
 
 }

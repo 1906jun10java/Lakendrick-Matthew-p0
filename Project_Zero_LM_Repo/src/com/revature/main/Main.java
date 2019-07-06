@@ -26,7 +26,7 @@ public class Main {
 
 		carLot.add(new Car("toyota", "Avalon", 2014, "yellow", 50000d,"not sold"));
 		
-		
+		List<Car> customerLot = new ArrayList<Car>();
 		boolean signedIn = true;
 		while(signedIn) {
 		System.out.println("Welcome to the site! Below, enter your username and password.");
@@ -57,7 +57,11 @@ public class Main {
 		// these are used to decide what menu to show.
 		int answerCustomer = 2;
 		int answerEmployee = 1;
-
+		//This list is to store the cars that the customer owns
+		//List<Car> customerLot = new ArrayList<Car>();
+		
+		//this will be used to connect the car offer to employee and customer
+		int customerOffer = 0;
 		// this will display the employee menu.
 		if (question == answerEmployee ) {
 			
@@ -92,12 +96,14 @@ public class Main {
 					int decision = SC.nextInt();
 					
 					if (decision == 2) {
-						
-						Scanner index = new Scanner(System.in);
-						int indexOfCar = index.nextInt();
-						
+						CarOffers.carsOnLot(carLot);
 						System.out.println(" ");
 						System.out.println("choose your car by the number of its index.");
+						Scanner index = new Scanner(System.in);
+						int indexOfCar = index.nextInt();
+						System.out.println("This is the car to be removed:");
+						CarOffers.ChosenCar(carLot, indexOfCar);
+						CarOffers.SystemUpdateOwnership(carLot, customerLot, customerOffer);
 						CarOffers.removeMethod(indexOfCar, carLot);
 					}
 					if(decision == 1) {
@@ -111,7 +117,10 @@ public class Main {
 
 					Scanner sc2 = new Scanner(System.in);
 					decision = sc2.nextInt();
-						CarOffers.AcceptOrReject(carLot, decision);
+					
+						CarOffers.AcceptOrReject(carLot, decision, customerOffer );
+						CarOffers.SystemUpdateOwnership(carLot, customerLot, customerOffer);
+						CarOffers.removeMethod(customerOffer, carLot);
 					break;
 
 				case 4:
@@ -134,13 +143,13 @@ public class Main {
 			System.out.println("1. View all cars on the lot.");
 			System.out.println("2. Make an offer on a vehicle.");
 			System.out.println("3. View cars that I own.");
-			System.out.println("4. View remaining payments on cars that I own");
-			System.out.println("5. sign out");
+			System.out.println("4. sign out");
+			
 			
 			int choice = sc.nextInt();
 			
 			
-			double customerOffer = 0;
+			
 				
 			
 				switch (choice) {
@@ -149,7 +158,7 @@ public class Main {
 					System.out.println(" These are the available cars: ");
 					CarOffers.carsOnLot(carLot);
 					System.out.println(" ");
-
+					break;
 				case 2:
 					
 					System.out.println(" ");
@@ -158,20 +167,25 @@ public class Main {
 					System.out.println(" ");
 					Scanner sc3 = new Scanner(System.in);
 					int carChosen = sc3.nextInt();
-					System.out.println("this is your car");
+					System.out.println("Customer chosen car");
 					CarOffers.ChosenCar(carLot, carChosen);
-
-					break;
-
+					System.out.println("What is your downpayment?");
+					double downPayment = sc3.nextDouble();
+					System.out.println("How many months?");
+					int months = sc3.nextInt();
+					CarOffers.CalculatePayments(carLot, carChosen, downPayment, months);
+					System.out.println(" ");
+					 customerOffer = CarOffers.ChosenCar(carLot,carChosen);
+					 break;
 				case 3:
-
+					System.out.println(" Cars you own:");
+					System.out.println("---------------");
+					System.out.println(" ");
+					CarOffers.carsOnLot(customerLot);
+				
 					break;
-
+				
 				case 4:
-				
-					break;
-				
-				case 5:
 				
 					switchControl1 = false;
 
@@ -186,4 +200,6 @@ public class Main {
 	}
 		
   }
+
+	List<Car> customerLot = new ArrayList<Car>();
 } 
