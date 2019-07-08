@@ -1,39 +1,31 @@
 package com.revature.beans;
 
 public class Car {
-	
-	
-
 
 	public Car () {
 		
 	}
 	
-	private int carID;
 	private String model;
 	private String make;
 	private int yearMade;
 	private String color;
 	private double currentPrice;
 	
-	
-	
-	public Car(int carID, String model, String make, int yearMade, String color, double currentPrice) {
-		this.carID = carID;
+	public Car(String model, String make, int yearMade, String color, double currentPrice) {
+		super();
+		//this.carID = carID;
 		this.model = model;
 		this.make = make;
 		this.yearMade = yearMade;
 		this.color = color;
 		this.currentPrice = currentPrice;
-		;
+		
 	}
 	
-	
-	
-
-	public Car(Car a) {
+	//public Car(Car a) {
 		// TODO Auto-generated constructor stub
-	}
+	//}
 
 
 
@@ -87,7 +79,7 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [carID = " +carID +" model= " + model + ", make= " + make + ", yearMade= " + yearMade + ", color=" + color
+		return "Car [model= " + model + ", make= " + make + ", yearMade= " + yearMade + ", color= " + color
 				+ ", currentPrice= " + currentPrice + ", ]";
 	}
 

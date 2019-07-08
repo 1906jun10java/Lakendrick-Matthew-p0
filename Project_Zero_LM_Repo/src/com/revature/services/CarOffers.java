@@ -14,35 +14,37 @@ public  class CarOffers {
 	
 	public static void removeMethod(int n, List<Car> cars) {
 		
-		
-		
 		cars.remove(n);
 		
-		
-		
 		}
-	
 	
 	public static void addMethod(List<Car> cars) {
 		
 		
 		Scanner scan = new Scanner(System.in);
-		System.out.println("make: ");
+		System.out.println("-----");
+		System.out.println("Make: ");
+		System.out.println("-----");
 		String make = scan.nextLine();
-		System.out.println("model: ");
+		System.out.println("------");
+		System.out.println("Model: ");
+		System.out.println("------");
 		String model = scan.nextLine();
-		
-		System.out.println("color: ");
+		System.out.println("------");
+		System.out.println("Color: ");
+		System.out.println("------");
 		String color = scan.nextLine();
-		System.out.println("Year made: ");
+		System.out.println("----------");
+		System.out.println("Year Made: ");
+		System.out.println("----------");
 		int year = scan.nextInt();
-		
+		System.out.println("------");
 		System.out.println("Price: ");
+		System.out.println("------");
 		double price = scan.nextDouble();
 		
 		
-		
-	//	cars.add(new Car(make,model,year,color,price));
+		cars.add(new Car(make,model,year,color,price));
 		
 		Iterator<Car> it = cars.iterator();
 		while(it.hasNext()) {
@@ -57,25 +59,20 @@ public  class CarOffers {
 		
 		
 		
-		
-			System.out.println("offer accepted.");
-			System.out.println(" ");
-			System.out.println("This is the car to be removed:");
-			System.out.println("-----------------");
+			System.out.println("---------------");
+			System.out.println("Offer Accepted.");
+			System.out.println("---------------");
+			System.out.println("------------------");
+			System.out.println("Car to be Removed: ");
+			System.out.println("------------------");
 			System.out.println(cars.get(c).toString());
 			
-			
-
-			
-		
 	}
 	
 	
 	
 	public static void carsOnLot(List<Car> cars) {
 		
-		
-	
 		Iterator<Car> it = cars.iterator();
 		while(it.hasNext()) {
 			System.out.println(it.next());
@@ -89,7 +86,7 @@ public  class CarOffers {
 		System.out.println(" ");
 		System.out.println(cars.get(n).toString());
 		System.out.println(" ");
-		int number = n;
+		
 		return n;
 	}
 	
@@ -97,7 +94,7 @@ public  class CarOffers {
 		double remainingBalance = (cars.get(n).getCurrentPrice()) - d;
 		double monthlyPayment = remainingBalance / m;
 		System.out.println("Balance on car: " + remainingBalance);
-		System.out.println("monthlyPayment: " + monthlyPayment);
+		System.out.println("Monthly Payment: " + monthlyPayment);
 		
 		
 		
@@ -111,7 +108,7 @@ public  class CarOffers {
 		int year = (carLot.get(customerOffer).getYearMade());
 		String color = (carLot.get(customerOffer).getColor());
 		double price = (carLot.get(customerOffer).getCurrentPrice());
-	//	customerLot.add(new Car(model,make,year,color,price,"Sold"));
+		customerLot.add(new Car(model,make,year,color,price));
 		
 		//return customerLot;
 	}
