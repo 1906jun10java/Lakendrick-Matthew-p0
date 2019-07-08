@@ -86,8 +86,8 @@ public  class CarOffers {
 		System.out.println(" ");
 		System.out.println(cars.get(n).toString());
 		System.out.println(" ");
-		
-		return n;
+		int number = n;
+		return number;
 	}
 	
 	public static void CalculatePayments(List<Car> cars, int n, double d, int m) {

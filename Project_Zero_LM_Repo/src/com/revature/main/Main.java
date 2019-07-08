@@ -30,10 +30,7 @@ public class Main {
 		 
 		
 
-		
-		// * prompt the welcome menu and ask the user
-		// * for their username and password.
-		 
+		//This is the list to hold the dealership cars
 		List<Car> carLot = new ArrayList<Car>();
 
 		
@@ -42,10 +39,19 @@ public class Main {
 		  carLot.add(new Car("Nissan", "Hootie", 2103, "Blue", 45000));
 		  
 		  carLot.add(new Car("Toyota", "Avalon", 2014, "Yellow", 50000));
-		 
-		
+		  
+		  carLot.add(new Car("AutoBot", "BumbleBee", 2014, "Yellow", 80000));
+		  
+		  carLot.add(new Car("Abrams", "Tank", 2014, "green", 80000));
+		  
+		  carLot.add(new Car("Mario", "Kart", 2014, "red", 80000));
+
+		// this is the list to hold our customer's Lot.  
 		List<Car> customerLot = new ArrayList<Car>();
-		
+
+		// this variable is to keep track of the customer's pick of car 
+		int customerOffer = 0;
+		//this variable is used to control the flow of the login menu
 		boolean signedIn = true;
 		while(signedIn) {
 		System.out.println("-------------------------------------------------------------");
@@ -60,16 +66,16 @@ public class Main {
 		
 		//opens up the scanner for user input
 		Scanner sc = new Scanner(System.in);
-		
+		// this is for the user name
 		String username = sc.nextLine();
-		//String username1 = "Lakendrick26";
+		
 
 		
 		System.out.println("---------------");
 		System.out.println("Enter Password: ");
 		System.out.println("---------------");	
 		
-		
+		//this is for the password
 		String password = sc.nextLine();
 
 		// Asks the user if their an employee or customer.
@@ -81,13 +87,8 @@ public class Main {
 		// these are used to decide what menu to show.
 		int answerCustomer = 2;
 		int answerEmployee = 1;
-		//This list is to store the cars that the customer owns
-		//List<Car> customerLot = new ArrayList<Car>();
 		
-		//this will be used to store the index of the car picked by the customer.
-		int customerOffer = 0;
 		
-		//This will be used to store the calculations of the payment
 		
 		// this will display the employee menu.
 		
@@ -147,11 +148,13 @@ public class Main {
 						
 						CarOffers.carsOnLot(carLot);
 						System.out.println("-----------------------------------------");
-						System.out.println("Choose your car by index. (starts from 0)");
+						System.out.println("Choose your car by index. (starts from 0 moving down.)");
 						System.out.println("-----------------------------------------");
 						
 						Scanner index = new Scanner(System.in);
 						
+						// this variable will hold the user input of the index for the car
+
 						int indexOfCar = index.nextInt();
 						
 						System.out.println("-----------");
@@ -199,8 +202,8 @@ public class Main {
 							 * System.out.println("------"); double price = scan.nextDouble();
 							 */
 						
-						//try { cardaoimpl.addCar(make, model, year, color, price); }
-						// catch(SQLException e) { e.printStackTrace(); }
+					//	try { cardaoimpl.addCar(make, model, year, color, price); }
+					//	 catch(SQLException e) { e.printStackTrace(); }
 						 
 						CarOffers.addMethod(carLot);
 					}
@@ -212,7 +215,7 @@ public class Main {
 					System.out.println("Customers offer on Car:");
 					System.out.println("----------------------");
 					
-					System.out.println(customerOffer);
+					//System.out.println(customerOffer);
 					CarOffers.ChosenCar(carLot, customerOffer);
 					
 					System.out.println("--------------------------------------------------------------");
@@ -223,7 +226,7 @@ public class Main {
 					
 					decision = sc2.nextInt();
 					if(decision == 1) {
-						CarOffers.AcceptOrReject(carLot, customerOffer );
+						//CarOffers.AcceptOrReject(carLot, customerOffer );
 						CarOffers.SystemUpdateOwnership(carLot, customerLot, customerOffer);
 						CarOffers.removeMethod(customerOffer, carLot);
 					}
@@ -317,8 +320,9 @@ public class Main {
 						// TODO Auto-generated catch block
 					//	e.printStackTrace();
 					//}
+					//This method holds the car choice of the user
 					 customerOffer = CarOffers.ChosenCar(carLot,carChosen);
-					
+					System.out.println("index of car: " + customerOffer);
 					 
 					 break;
 				case 3:
